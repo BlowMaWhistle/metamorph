@@ -9,8 +9,8 @@ on:
     branches:
       - "73-automated-build-executables"
 jobs:
-  build-jar:
-    name: 'Build JAR'
+  build-native-image:
+    name: 'Build Native Image'
     runs-on: ubuntu-latest
     steps:
       - name: 'Checkout'
@@ -20,7 +20,7 @@ jobs:
         uses: graalvm/setup-graalvm@v1
         with:
           java-version: '17'
-          distribution: 'graalvm'
+          version: '22.2.0'
           github-token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Install clojure tools
