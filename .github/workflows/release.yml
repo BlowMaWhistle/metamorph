@@ -19,18 +19,14 @@ jobs:
       - name: Setup GraalVM & Java
         uses: graalvm/setup-graalvm@v1
         with:
-          java-version: '17'
-          version: '22.2.0'
+          java-version: '19'
+          distribution: 'graalvm'
           github-token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Install clojure tools
         uses: DeLaGuardo/setup-clojure@11.0
         with:
           lein: 2.9.10
-
-      - name: Install native-image
-        run: |
-          gu install native-image
 
       - name: Build MetaMorph
         run: |
