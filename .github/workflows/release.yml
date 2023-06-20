@@ -10,8 +10,11 @@ on:
       - "73-automated-build-executables"
 jobs:
   build-binary:
-    name: 'Build binary'
-    runs-on: ubuntu-latest
+    name: 'Build binary on ${{ matrix.os }}'
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [macos-latest, windows-latest, ubuntu-latest]
     steps:
       - name: 'Checkout'
         uses: actions/checkout@v3
