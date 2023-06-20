@@ -9,8 +9,8 @@ on:
     branches:
       - "73-automated-build-executables"
 jobs:
-  build-native-image:
-    name: 'Build Native Image'
+  build-binary:
+    name: 'Build binary'
     runs-on: ubuntu-latest
     steps:
       - name: 'Checkout'
@@ -27,6 +27,10 @@ jobs:
         uses: DeLaGuardo/setup-clojure@11.0
         with:
           lein: 2.9.10
+
+      - name: Install native-image
+        run: |
+          gu install native-image
 
       - name: Build MetaMorph
         run: |
