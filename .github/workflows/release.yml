@@ -19,7 +19,7 @@ jobs:
       - name: Setup GraalVM & Java
         uses: graalvm/setup-graalvm@v1
         with:
-          java-version: '19'
+          java-version: '17'
           distribution: 'graalvm'
           github-token: ${{ secrets.GITHUB_TOKEN }}
 
@@ -27,6 +27,9 @@ jobs:
         uses: DeLaGuardo/setup-clojure@11.0
         with:
           lein: 2.9.10
+
+      - name: Check Native Image Version
+        run: native-image --version
 
       - name: Build MetaMorph
         run: |
