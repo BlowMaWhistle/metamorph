@@ -34,7 +34,9 @@ jobs:
       - name: create reflections file
         run: |
           lein uberjar
+          java -agentlib:native-image-agent=config-output-dir=META-INF/native-image -jar /home/runner/work/metamorph/metamorph/target/metamorph-0.3.1.jar
 
-      - name: Build MetaMorph
-        run: |
-          lein native-image
+
+      # - name: Build MetaMorph
+      #   run: |
+      #     lein native-image
