@@ -23,7 +23,8 @@
   :aliases {"kaocha" ["run" "-m" "kaocha.runner"]}
   :native-image {:name "metamorph"
                  :opts ["--verbose" "--no-fallback" "-H:ReflectionConfigurationFiles=META-INF/native-image/reflect-config.json"
-                        "--initialize-at-build-time=com.fasterxml.jackson.core,com.fasterxml.jackson.dataformat,honey.sql.helpers__init"
+                        "--allow-incomplete-classpath"
+                        "--initialize-at-build-time=com.fasterxml.jackson.core,com.fasterxml.jackson.dataformat"
                         "--initialize-at-run-time=clojure.core.cache.wrapped__init,clojure.core.cache__init,clojure.core.reducers__init,clojure.core.rrb_vector.interop__init"
                         "--trace-class-initialization=clojure.core.cache__init,clojure.core.rrb_vector.interop__init,clojure.core.reducers__init"]}
   :main ^:skip-aot metamorph.core
