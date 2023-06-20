@@ -20,7 +20,7 @@ jobs:
         uses: graalvm/setup-graalvm@v1
         with:
           java-version: '17'
-          distribution: 'graalvm'
+          version: '22.3.0'
           github-token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Install clojure tools
@@ -28,8 +28,8 @@ jobs:
         with:
           lein: 2.9.10
 
-      - name: Check Native Image Version
-        run: native-image --version
+      - name: Install Native Image
+        run: gu install native-image
 
       - name: Build MetaMorph
         run: |
