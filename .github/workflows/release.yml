@@ -31,6 +31,10 @@ jobs:
         with:
           lein: 2.9.10
 
+      - name: create reflections file
+        run: |
+          lein uberjar
+
       - name: Build MetaMorph
         run: |
           lein native-image
