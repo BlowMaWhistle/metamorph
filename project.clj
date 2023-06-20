@@ -22,7 +22,7 @@
                  [com.github.seancorfield/honeysql "2.2.891"]]
   :aliases {"kaocha" ["run" "-m" "kaocha.runner"]}
   :native-image {:name "metamorph"
-                 :opts ["--verbose" "--no-fallback" "-H:ReflectionConfigurationFiles=META-INF/native-image/reflect-config.json" "-H:+TraceClassInitialization"
+                 :opts ["--verbose" "--no-fallback" "-H:ReflectionConfigurationFiles=META-INF/native-image/reflect-config.json" "-H:TraceClassInitialization=true"
                         "--initialize-at-build-time=com.fasterxml.jackson.core,com.fasterxml.jackson.dataformat"
                         "--initialize-at-run-time=clojure.core.cache.wrapped__init,clojure.core.cache__init,clojure.core.reducers__init,clojure.core.rrb_vector.interop__init"]}
   :main ^:skip-aot metamorph.core
